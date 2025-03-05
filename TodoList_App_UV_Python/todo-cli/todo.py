@@ -5,11 +5,11 @@ import os # to check if the file exists
 TODO_FILE = "todo.json"
 
 def load_tasks():
-    if os.path.exists(TODO_FILE):
+    if not os.path.exists(TODO_FILE):
         return []
     with open(TODO_FILE, "r") as file:
         return json.load(file)
-    
+        
 def save_tasks(tasks):
     with open(TODO_FILE, "w") as file:
         json.dump(tasks, file, indent=4)
@@ -31,14 +31,14 @@ def add(task):
 
 @click.command()
 def list():
-    """List all tasks"""
+    """List of all tasks"""
     tasks = load_tasks()
     if not tasks:
         click.echo("No tasks found..")
         return
     for index, task in enumerate(tasks, 1):
         status = "✅" if task["done"] else "❌"
-        click.echo(f"{index}. {task["task"]} [{status}]")
+        click.echo(f"{index}. {task['task']} [{status}]")
 
 @click.command()
 @click.argument("task_number", type=int)
@@ -50,7 +50,7 @@ def complete(task_number):
         save_tasks(tasks)
         click.echo(f"Task {task_number} marked as completd!")
     else:
-        click.echo(f"Invalid task number {task_number}.")
+        click.echo(f"Invalid task number..")
 
 
 @click.command()
@@ -63,7 +63,7 @@ def remove(task_number):
         save_tasks(tasks)
         click.echo(f"Removed task: {removed_task['task']}")
     else:
-        click.echo(f"Invalid task number {task_number}")
+        click.echo(f"Invalid task number..")
 
 cli.add_command(add)
 cli.add_command(list)
