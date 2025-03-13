@@ -41,11 +41,17 @@ money_quotes = [
 ]
 
 
+# @app.get("/side_hustles")  on browser in the end add 'http://127.0.0.1:8000/side_hustles?apiKey=123456789'
+# def get_side_hustle(apiKey: str):
+#     """Returns a random side huslte idea"""
+#     if apiKey != "123456789":
+#         return {"error" : "Invalid api key."}
+#     return {"side_hustle" : random.choice(side_hustles)}
+
+
 @app.get("/side_hustles")
-def get_side_hustle(apiKey: str):
+def get_side_hustle():
     """Returns a random side huslte idea"""
-    if apiKey != "123456789":
-        return {"error" : "Invalid api key."}
     return {"side_hustle" : random.choice(side_hustles)}
 
 
