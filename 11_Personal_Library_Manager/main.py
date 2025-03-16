@@ -85,7 +85,7 @@ class BookCollection:
             for book in self.book_list:
                  if book["title"].lower() == book_title.lower():
                       print("Leave blank to keep existing value.")
-                      book["title"] = input(f"New title ({book["titlr"]}): ") or book["title"]
+                      book["title"] = input(f"New title ({book["title"]}): ") or book["title"]
                       book["author"] = (
                            input(f"New author ({book['author']}): ") or book["author"]
                       )
