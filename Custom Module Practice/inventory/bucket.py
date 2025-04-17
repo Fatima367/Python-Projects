@@ -1,0 +1,2 @@
+def bucket():
+    return ["samsung"]
