@@ -24,8 +24,8 @@ def fetch_side_hustle():
             return  hustles["side_hustle"]
         else:
             return("Freelancing")
-    except:
-        return("Something went wrong")
+    except Exception as e:
+        return("Something went wrong", e)
     
 st.subheader("Side Hustle Ideas")
 if st.button("Generate Hustle"):
@@ -40,8 +40,8 @@ def fetch_money_quotes():
             return quote["money_quote"]
         else:
             return ("Make money!!")
-    except:
-        return ("Something went wrong!")
+    except Exception as e:
+        return ("Something went wrong!", e)
     
 st.subheader("Money-Making Motivations")
 if st.button("Get Motivation"):
