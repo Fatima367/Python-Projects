@@ -50,7 +50,7 @@ def complete(task_number):
         save_tasks(tasks)
         click.echo(f"Task {task_number} marked as completd!")
     else:
-        click.echo(f"Invalid task number..")
+        click.echo("Invalid task number..")
 
 
 @click.command()
@@ -63,7 +63,7 @@ def remove(task_number):
         save_tasks(tasks)
         click.echo(f"Removed task: {removed_task['task']}")
     else:
-        click.echo(f"Invalid task number..")
+        click.echo("Invalid task number..")
 
 cli.add_command(add)
 cli.add_command(list)
