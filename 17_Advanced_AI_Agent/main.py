@@ -18,27 +18,6 @@ provider = AsyncOpenAI(
 # Configure the language model
 model = OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=provider)
 
-# @function_tool("get_asharib_data")
-# def get_asharib_data() -> str:
-#     """
-#     Fetches profile data about Asharib Ali from his personal API endpoint.
-
-#     This function makes a request to Asharib's profile API and returns information
-#     about his background, skills, projects, education, work experience, and achievements.
-
-#     Returns:
-#         str: JSON string containing Asharib Ali's profile information
-#     """
-
-#     try:
-#         response = requests.get("https://www.asharib.xyz/api/profile")
-#         if response.status_code == 200:
-#             return response.text
-#         else:
-#             return f"Error fetching data: Status code {response.status_code}"
-#     except Exception as e:
-#         return f"Error fetching data: {str(e)}"
-
 
 @function_tool("get_weather")
 def get_weather(location:str, unit:str ="C")->str:
@@ -64,22 +43,6 @@ agent = Agent(
     tools=[get_weather]
 )
 
-# @cl.oauth_callback
-# def oauth_callback(
-#     provider_id: str,
-#     token: str,
-#     raw_user_data: Dict[str, str],
-#     default_user: cl.user
-# ) -> Optional[cl.User] :
-#     """
-#     Handle the OAuth callback from Github
-#     Return the user object if authentication is successful, None otherwise
-#     """
-
-#     print(f"Provider: {provider_id}")
-#     print(f"User data: {raw_user_data}")
-
-#     return default_user
 
 @cl.on_chat_start
 async def handle_chat_start():
