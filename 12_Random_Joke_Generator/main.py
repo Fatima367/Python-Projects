@@ -1,5 +1,6 @@
 import streamlit as st
 import requests
+from requests.exceptions import RequestException
 
 def get_random_joke():
     """Fetch a random joke from the API"""
@@ -11,7 +12,7 @@ def get_random_joke():
             return f"{joke_data['setup']} \n\n {joke_data['punchline']}"
         else:
             return "Failed to fetch a joke. Please try again later."
-    except:
+    except RequestException:
         return "Why did the programmer quit his job? \n because he didn't get array"
     
 def main():
