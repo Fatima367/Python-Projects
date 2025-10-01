@@ -15,6 +15,7 @@ provider = AsyncOpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai",
 )
 
+
 # Configure the language model
 model = OpenAIChatCompletionsModel(model="gemini-2.0-flash", openai_client=provider)
 

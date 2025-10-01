@@ -42,4 +42,4 @@ def get_asharib_data() -> str:
             return f"Error fetching data: Status code {response.status_code}"
     except Exception as e:
         return f"Error fetching data: {str(e)}"
-```
+``` 
